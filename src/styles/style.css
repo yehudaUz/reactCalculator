@@ -1,0 +1,11 @@
+.calculator-display {
+    font: 100 14px 'Roboto';
+    -webkit-box-direction: normal;
+    box-sizing: inherit;
+    color: white;
+    background: #1c191c;
+    line-height: 130px;
+    font-size: 6em;
+    -webkit-box-flex: 1;
+    flex: 1;
+}

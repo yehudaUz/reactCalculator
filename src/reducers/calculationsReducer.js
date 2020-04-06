@@ -29,6 +29,15 @@ export default (state = calculationDefaultState, action) => {
         ...state,
         operator: "*"
       }
+    case 'DIGIT_CLICKED':
+      if (state.operator == undefined)
+        return {
+          ...state,
+          screenText: state.screenText + action.text
+        }
+      switch (state.operator) {
+        
+      }
     default:
       return state;
   }

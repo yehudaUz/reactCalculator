@@ -9,3 +9,25 @@
     -webkit-box-flex: 1;
     flex: 1;
 }
+
+.digit-key {
+    /* -webkit-box-direction: normal;
+    box-sizing: inherit;
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    user-select: none;
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    height: 80px;
+    border-top: 1px solid #777;
+    border-right: 1px solid #666;
+    line-height: 80px;
+    font-size: 2.25em;
+    width: 160px;
+    text-align: left;
+    padding-left: 32px; */
+}

@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import configureStore from './config/store'
 import Calculator from './components/calculator'
 import '../src/styles/style.css'
-import { plus } from './actions/calculations'
 
 const store = configureStore()
 //store.subscribe(() => console.log(store.getState()))
@@ -17,5 +16,3 @@ const jsx = (
 )
 
 ReactDOM.render(jsx, document.getElementById('app'))
-
-store.dispatch(plus())

@@ -2,7 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import DigitKeys from './DigitKeys'
 import OperationalKeys from './OperationalKeys'
+import OperatorKey from './OperatorKey'
 import OperatorKeys from './OperatorKeys'
+
 
 const Keyboard = (props) => (
     <div>

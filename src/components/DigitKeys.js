@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import DigitKey from './DigitKey'
 
 const DigitKeys = (props) => (
-    <div>
+    <div className="digit-keys">
        <DigitKey text="1"/>
        <DigitKey text="2"/>
        <DigitKey text="3"/>

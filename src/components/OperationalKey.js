@@ -7,14 +7,14 @@ const OperationalKey = (props) => (
             onClick={(e) => {
                 e.preventDefault()
                 console.log(e.target.innerText)
-                // switch (e.target.innerText) {
-                //     case "+": return props.dispatch(plus())
-                //     case "-": return props.dispatch(minus())
-                //     case "X": return props.dispatch(multiply())
-                //     case "÷": return props.dispatch(divide())
-                //     default:
-                //         break;
-                // }
+                switch (e.target.innerText) {
+                    case "AC": return props.dispatch(ac())
+                    case "C": return props.dispatch(c())
+                    case "±": return props.dispatch(sign())
+                    case "%": return props.dispatch(precent())
+                    default:
+                        break;
+                }
 
             }}>
             {props.text}

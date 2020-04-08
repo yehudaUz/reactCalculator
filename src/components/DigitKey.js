@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { digitKeyClicked } from '../actions/calculations'
 
 const DigitKey = (props) => (
-    <div>
-        <button className="digit-key"
+    <div className="digit-key">
+        <button 
             onClick={(e) => {
                 e.preventDefault()
                 console.log(e.target.innerText)

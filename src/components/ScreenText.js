@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 const ScreenText = (props) => {
     console.log(props)
     return (
-        <div>
+        <div className="screen-text">
             {props.state.screenText}
         </div>
     )

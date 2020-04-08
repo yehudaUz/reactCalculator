@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import OperatorKey from './OperatorKey'
 
 const OperatorKeys = (props) => (
-    <div>
+    <div className="operator-keys">
         <OperatorKey text="÷" />
         <OperatorKey text="X" />
         <OperatorKey text="-" />

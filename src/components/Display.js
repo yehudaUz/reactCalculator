@@ -6,7 +6,7 @@ import ScreenText from './ScreenText'
 const Display = (props) => {
     //console.log(props)
     return (
-        <div className="calculator-display">
+        <div className="display">
             {/* <p>Display {}</p> */}
             <ScreenText />
         </div>

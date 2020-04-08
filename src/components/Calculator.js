@@ -5,7 +5,7 @@ import Keyboard from './Keyboard'
 
 const Calculator = (props) => (
     <div className="calculator">
-        <p> {props.test}</p>
+        {/* <p> {props.test}</p> */}
         <Display />
         <Keyboard />
     </div>

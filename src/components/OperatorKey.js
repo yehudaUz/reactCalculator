@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { plus, minus, divide, multiply, equal } from '../actions/calculations'
 
 const OperatorKey = (props) => (
-    <div>
-        <button className="operator-key"
+    <div className="operator-key">
+        <button 
             onClick={(e) => {
                 e.preventDefault()
                 console.log(e.target.innerText)

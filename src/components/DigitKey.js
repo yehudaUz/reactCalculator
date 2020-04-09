@@ -4,7 +4,8 @@ import { digitKeyClicked } from '../actions/calculations'
 
 const DigitKey = (props) => (
     <div className="digit-key" className="td">
-        <button 
+        <button
+            className={`digit-key-button-${props.text}`}
             onClick={(e) => {
                 e.preventDefault()
                 console.log(e.target.innerText)
@@ -12,7 +13,7 @@ const DigitKey = (props) => (
             }}>
             {props.text}
         </button>
-    </div>
+    </div >
 )
 
 const mapStateToProps = (state) => {

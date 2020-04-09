@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import OperationalKey from './OperatorKey'
+import OperationalKey from './OperationalKey'
 
 const OperationalKeys = (props) => (
-    <div className="operational-keys" className="tr">
+    <div className="operational-keys">
         <OperationalKey text="AC" />
         <OperationalKey text="±" />
         <OperationalKey text="%" />

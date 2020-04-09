@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const OperationalKey = (props) => (
     <div>
-        <button className="operational-key"
+        <button className="operational-key td"
             onClick={(e) => {
                 e.preventDefault()
                 console.log(e.target.innerText)

@@ -7,9 +7,9 @@ import OperatorKeys from './OperatorKeys'
 
 
 const Keyboard = (props) => (
-    <div className="keyboard"> 
+    <div className="keyboard" id="table">
         {/* <p>{props.test}</p> */}
-        <OperationalKeys/>
+        <OperationalKeys />
         <DigitKeys />
         <OperatorKeys />
     </div >

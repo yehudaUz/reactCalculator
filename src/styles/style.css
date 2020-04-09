@@ -34,22 +34,30 @@
     grid-row: 1; */
 }
 
-.operator-keys {
+.operator-keys {}
 
+.operator-key {}
+
+#app {}
+
+html {}
+
+body {}
+
+#table {
+    display: table;
+    padding: 5px;
 }
 
-.operator-key {
-
+.tr {
+    display: table-row;
+    padding: 5px;
 }
 
-#app {
-
-}
-
-html {
-
-}
-
-body {
-
+.td {
+    display: table-cell;
+    padding: 5px;
+    width: 150px;
+    border: #000000 solid 1px;
+    margin: 5px;
 }

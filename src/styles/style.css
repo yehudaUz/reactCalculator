@@ -74,6 +74,14 @@ button[class*="operator-button"] {
     color: white;
 }
 
+button[class*="digit-key-button"] {
+    background: #e0e0e7;
+}
+
+button[class*="operational-key"] {
+    background: linear-gradient(to bottom, rgba(202, 202, 204, 1) 0%, rgba(196, 194, 204, 1) 100%);
+}
+
 #app {}
 
 html {}

@@ -10,6 +10,7 @@ const calculationDefaultState = {
 };
 
 export default (state = calculationDefaultState, action) => {
+  //immidiate actions
   switch (action.type) {
     case 'PRECENT':
     case 'SIGN':
@@ -19,6 +20,7 @@ export default (state = calculationDefaultState, action) => {
       return calculationResponse(state, action)
   }
 
+  //just adding the operator to data or/and adding digit to screen
   if (state.operator == undefined) {
     switch (action.type) {
       case 'PLUS':
@@ -63,6 +65,12 @@ export default (state = calculationDefaultState, action) => {
         return state;
     }
   }
+  else if (state.screenText != undefined && state.memoryText != undefined && state.operator != undefined &&
+    ((action.type == 'PLUS' && state.operator == "+")
+      || (action.type == 'MINUS' && state.operator == "-")
+      || (action.type == 'MULTIPLY' && state.operator == "*")
+      || (action.type == 'DIVIDE' && state.operator == "/")))
+    return calculationResponse(state, action, true)
   else
     switch (action.type) {
       case 'PLUS':
@@ -75,12 +83,12 @@ export default (state = calculationDefaultState, action) => {
           ...state,
           operator: "-"
         }
-      case 'DEVIDE':
+      case 'DIVIDE':
         return {
           ...state,
           operator: "/"
         }
-      case 'MUILTIPLY':
+      case 'MULTIPLY':
         return {
           ...state,
           operator: "*"
@@ -107,7 +115,7 @@ export default (state = calculationDefaultState, action) => {
 
 };
 
-const calculationResponse = (state, action) => {
+const calculationResponse = (state, action, isTwoTimesOperatorClicked) => {
   const screenNum = Number(state.screenText)
   const memNum = Number(state.memoryText)
 
@@ -142,31 +150,60 @@ const calculationResponse = (state, action) => {
       }
   }
 
-  switch (state.operator) {
-    case '+':
-      return {
-        operator: undefined,
-        screenText: screenNum + memNum,
-        memoryText: screenNum + memNum
-      }
-    case '-':
-      return {
-        operator: undefined,
-        screenText: memNum - screenNum,
-        memoryText: memNum - screenNum
-      }
-    case '/':
-      return {
-        operator: undefined,
-        screenText: memNum / screenNum,
-        memoryText: memNum / screenNum
-      }
-    case '*':
-      return {
-        operator: undefined,
-        screenText: screenNum * memNum,
-        memoryText: screenNum * memNum
-      }
+  if (isTwoTimesOperatorClicked) {
+    switch (action.type) {
+      case 'PLUS':
+        return {
+          operator: "+",
+          screenText: screenNum + memNum,
+          memoryText: screenNum + memNum
+        }
+      case 'MINUS':
+        return {
+          operator: "-",
+          screenText: memNum - screenNum,
+          memoryText: memNum - screenNum
+        }
+      case 'DIVIDE':
+        return {
+          operator: "/",
+          screenText: memNum / screenNum,
+          memoryText: memNum / screenNum
+        }
+      case 'MULTIPLY':
+        return {
+          operator: "*",
+          screenText: screenNum * memNum,
+          memoryText: screenNum * memNum
+        }
+    }
   }
+  else
+    switch (state.operator) {
+      case '+':
+        return {
+          operator: undefined,
+          screenText: screenNum + memNum,
+          memoryText: screenNum + memNum
+        }
+      case '-':
+        return {
+          operator: undefined,
+          screenText: memNum - screenNum,
+          memoryText: memNum - screenNum
+        }
+      case '/':
+        return {
+          operator: undefined,
+          screenText: memNum / screenNum,
+          memoryText: memNum / screenNum
+        }
+      case '*':
+        return {
+          operator: undefined,
+          screenText: screenNum * memNum,
+          memoryText: screenNum * memNum
+        }
+    }
 
 }

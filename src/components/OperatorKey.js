@@ -8,7 +8,7 @@ const OperatorKey = (props) => (
             className={`operator-button-${props.text}`}
             onClick={(e) => {
                 e.preventDefault()
-                console.log(e.target.innerText)
+                //(e.target.innerText)
                 switch (e.target.innerText) {
                     case "+": return props.dispatch(plus())
                     case "-": return props.dispatch(minus())

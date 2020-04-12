@@ -7,7 +7,7 @@ const OperationalKey = (props) => (
         <button className="operational-key td"
             onClick={(e) => {
                 e.preventDefault()
-                console.log(e.target.innerText)
+              //  console.log(e.target.innerText)
                 switch (e.target.innerText) {
                     case "AC": return props.dispatch(ac())
                     case "C": return props.dispatch(c())

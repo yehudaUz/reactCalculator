@@ -11,7 +11,7 @@ const DigitKey = (props) => {
                 className={`digit-key-button-${props.text}`}
                 onClick={(e) => {
                     e.preventDefault()
-                    console.log(e.target.innerText)
+                  //  console.log(e.target.innerText)
                     // let width;
                     // document.getElementById("display") ? width = document.getElementById("display").offsetWidth : ""
                     // //style={{ fontSize: width / 12 }}

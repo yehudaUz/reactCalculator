@@ -39,5 +39,9 @@ export const precent = () => ({
   type: 'PRECENT',
 });
 
+export const decimalPoint = () => ({
+  type:'DECIMAL-POINT'
+})
+
 
 

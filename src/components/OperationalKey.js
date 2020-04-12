@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { ac,c,sign,precent } from '../actions/calculations'
 
 const OperationalKey = (props) => (
     <div>

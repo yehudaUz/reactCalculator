@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import DigitKey from './DigitKey'
 
-const DigitKeys = (props) => (
+const DigitKeys = () => (
     <div className="digit-keys">
         <div className="tr">
             <DigitKey text="7" />
@@ -26,10 +26,4 @@ const DigitKeys = (props) => (
     </div>
 )
 
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
-
-export default connect(mapStateToProps)(DigitKeys)
+export default connect()(DigitKeys)

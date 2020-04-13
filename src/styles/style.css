@@ -1,6 +1,5 @@
 #app {
     height: 100vh;
-    /* display: -webkit-box; */
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -18,39 +17,18 @@ body {
 }
 
 .keyboard {
-    /* display: flex; */
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto); */
-    /* display: table; */
 }
 
 .operational-keys {
     display: inline-flex;
-    /* font: 100 14px 'Roboto'; */
-    /* -webkit-box-direction: normal; */
-    /* box-sizing: inherit; */
-    /* display: flex; */
-    /* background: linear-gradient(to bottom, rgba(202, 202, 204, 1) 0%, rgba(196, 194, 204, 1) 100%); */
 }
 
 .digit-keys {
     display: table;
-    /* font: 100 14px 'Roboto';
-    box-sizing: inherit;
-    background: #e0e0e7;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    flex-direction: row;
-    flex-wrap: wrap-reverse; */
 }
 
 .digit-key {
-    /* display: table-cell; */
-    /* grid-column: 1 / 3;
-    grid-row: 1; */
+
 }
 
 .digit-key-button-0 {
@@ -58,17 +36,12 @@ body {
 }
 
 .display {
-    /* display: table-cell;
-    padding: 5px;
-    width: 150px;
-    border: #000000 solid 1px; */
-    /*  */
     font: 100 14px 'Roboto';
     -webkit-box-direction: normal;
     box-sizing: inherit;
     color: white;
     background: #1c191c;
-    /* line-height: 100px; */
+    line-height: 120px;
     font-size: 5em;
     -webkit-box-flex: 1;
     flex: 1;
@@ -105,21 +78,15 @@ button[class*="operational-key"] {
 
 #table {
     display: table;
-    /* padding: 5px; */
 }
 
 .tr {
-    /* display: table-row;
-    padding: 5px; */
 }
 
 .td {
     display: table-cell;
-    /* padding: 5px; */
     width: 80px;
     height: 80px;
-    /* border: #000000 solid 1px; */
-    /* margin: 5px; */
 }
 
 button {
@@ -132,7 +99,6 @@ button {
     border: none;
     border-top: 1px solid #777;
     border-right: 1px solid #666;
-    /* border: #000000 solid 1px; */
 }
 
 button:active {

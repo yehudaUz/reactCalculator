@@ -4,39 +4,39 @@ export const digitKeyClicked = (text) => ({
 });
 
 export const plus = () => ({
-  type: 'PLUS',
+  type: 'PLUS'
 });
 
 export const minus = () => ({
-  type: 'MINUS',
+  type: 'MINUS'
 });
 
 export const multiply = () => ({
-  type: 'MULTIPLY',
+  type: 'MULTIPLY'
 });
 
 export const divide = () => ({
-  type: 'DIVIDE',
+  type: 'DIVIDE'
 });
 
 export const equal = () => ({
-  type: 'EQUAL',
+  type: 'EQUAL'
 });
 
 export const ac = () => ({
-  type: 'AC',
+  type: 'AC'
 });
 
 export const c = () => ({
-  type: 'C',
+  type: 'C'
 });
 
 export const sign = () => ({
-  type: 'SIGN',
+  type: 'SIGN'
 });
 
 export const precent = () => ({
-  type: 'PRECENT',
+  type: 'PRECENT'
 });
 
 export const decimalPoint = () => ({

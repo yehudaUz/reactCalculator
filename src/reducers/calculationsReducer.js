@@ -1,16 +1,13 @@
-// Expenses Reducer
-
-import { decimalPoint } from "../actions/calculations";
-
 const calculationDefaultState = {
   screenText: "0",
   memoryText: undefined,
-  operator: undefined
-  //,operatorKeys:undefined
+  operator: undefined,
+  c_Ac: "AC",
+  operatorLastClicked: false
 };
 
 export default (state = calculationDefaultState, action) => {
-  //immidiate actions
+  //immidiate actions, check and add to memory
   switch (action.type) {
     case 'PRECENT':
     case 'SIGN':
@@ -20,43 +17,50 @@ export default (state = calculationDefaultState, action) => {
       return calculationResponse(state, action)
   }
 
-  //just adding the operator to data or/and adding digit to screen
+  //adding operator and last number to memory for future calc / adding futre digit of calc to screen
   if (state.operator == undefined) {
     switch (action.type) {
       case 'PLUS':
         return {
           ...state,
           operator: "+",
-          memoryText: state.screenText
+          memoryText: state.screenText,
+          operatorLastClicked: true
         }
       case 'MINUS':
         return {
           ...state,
           operator: "-",
-          memoryText: state.screenText
+          memoryText: state.screenText,
+          operatorLastClicked: true
         }
       case 'DIVIDE':
         return {
           ...state,
           operator: "/",
-          memoryText: state.screenText
+          memoryText: state.screenText,
+          operatorLastClicked: true
         }
       case 'MULTIPLY':
         return {
           ...state,
           operator: "*",
-          memoryText: state.screenText
+          memoryText: state.screenText,
+          operatorLastClicked: true
         }
       case 'DIGIT_CLICKED':
         if (state.screenText == "0" && state.memoryText == undefined || (state.screenText == state.memoryText))
           return {
             ...state,
-            screenText: action.text
+            screenText: action.text,
+            c_Ac: "C",
+            operatorLastClicked: false
           }
         else
           return {
             ...state,
-            screenText: state.screenText + action.text
+            screenText: state.screenText + action.text,
+            operatorLastClicked: false
           }
         switch (state.operator) {
 
@@ -65,44 +69,53 @@ export default (state = calculationDefaultState, action) => {
         return state;
     }
   }
+  //imidiate action for "double tap" (example 9++ = 18, ++ = 36..)
   else if (state.screenText != undefined && state.memoryText != undefined && state.operator != undefined &&
-    ((action.type == 'PLUS' && state.operator == "+")
-      || (action.type == 'MINUS' && state.operator == "-")
-      || (action.type == 'MULTIPLY' && state.operator == "*")
-      || (action.type == 'DIVIDE' && state.operator == "/")))
+    (action.type == 'PLUS' || action.type == 'MINUS' || action.type == 'MULTIPLY' || action.type == 'DIVIDE'))
     return calculationResponse(state, action, true)
+  //adding operator to memory or digit to screen
   else
     switch (action.type) {
       case 'PLUS':
         return {
           ...state,
-          operator: "+"
+          operator: "+",
+          operatorLastClicked: true
         }
       case 'MINUS':
         return {
           ...state,
-          operator: "-"
+          operator: "-",
+          operatorLastClicked: true
         }
       case 'DIVIDE':
         return {
           ...state,
-          operator: "/"
+          operator: "/",
+          operatorLastClicked: true
         }
       case 'MULTIPLY':
         return {
           ...state,
-          operator: "*"
+          operator: "*",
+          operatorLastClicked: true
         }
       case 'DIGIT_CLICKED':
-        if (state.screenText == state.memoryText)
+        // if (state.screenText == state.memoryText && (!state.screenText || !(state.screenText.slice(-1) == action.text.slice(-1)))
+        if (state.operatorLastClicked || state.screenText == "0")
           return {
             ...state,
-            screenText: action.text
+            screenText: action.text,
+            c_Ac: "C",
+            operatorLastClicked: false
           }
         else
           return {
             ...state,
-            screenText: state.screenText + action.text
+            // memoryText: state.screenText,
+            screenText: state.screenText + action.text,
+            c_Ac: "C",
+            operatorLastClicked: false
           }
         switch (state.operator) {
 
@@ -119,6 +132,7 @@ const calculationResponse = (state, action, isTwoTimesOperatorClicked) => {
   const screenNum = Number(state.screenText)
   const memNum = Number(state.memoryText)
 
+  //immidiate actions 
   switch (action.type) {
     case 'PRECENT':
       return {
@@ -137,47 +151,67 @@ const calculationResponse = (state, action, isTwoTimesOperatorClicked) => {
     case 'C':
       return {
         ...state,
-        screenText: screenNum / 100,
+        screenText: "0",
+        c_Ac: "AC"
       }
     case 'DECIMAL-POINT':
       if (!state.screenText.includes("."))
         return {
           ...state,
-          screenText: state.screenText + "."
+          screenText: state.screenText + ".",
+          c_Ac: "C"
         }
       return {
         ...state
       }
   }
 
+  //++ -- .... double tap
   if (isTwoTimesOperatorClicked) {
+    let sign;
     switch (action.type) {
-      case 'PLUS':
+      case 'PLUS': sign = "+"
+        break;
+      case 'MINUS': sign = "-"
+        break;
+      case 'DIVIDE': sign = "/"
+        break;
+      case 'MULTIPLY': sign = "*"
+        break;
+    }
+
+    switch (state.operator) {
+      case '+':
         return {
-          operator: "+",
+          operatorLastClicked: true,
+          operator: sign,
           screenText: screenNum + memNum,
           memoryText: screenNum + memNum
         }
-      case 'MINUS':
+      case '-':
         return {
-          operator: "-",
+          operatorLastClicked: true,
+          operator: sign,
           screenText: memNum - screenNum,
           memoryText: memNum - screenNum
         }
-      case 'DIVIDE':
+      case '/':
         return {
-          operator: "/",
+          operatorLastClicked: true,
+          operator: sign,
           screenText: memNum / screenNum,
           memoryText: memNum / screenNum
         }
-      case 'MULTIPLY':
+      case '*':
         return {
-          operator: "*",
+          operatorLastClicked: true,
+          operator: sign,
           screenText: screenNum * memNum,
           memoryText: screenNum * memNum
         }
     }
   }
+  //all normal calculation
   else
     switch (state.operator) {
       case '+':
@@ -205,5 +239,4 @@ const calculationResponse = (state, action, isTwoTimesOperatorClicked) => {
           memoryText: screenNum * memNum
         }
     }
-
 }

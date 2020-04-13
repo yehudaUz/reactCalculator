@@ -8,7 +8,6 @@ const OperatorKey = (props) => (
             className={`operator-button-${props.text}`}
             onClick={(e) => {
                 e.preventDefault()
-                //(e.target.innerText)
                 switch (e.target.innerText) {
                     case "+": return props.dispatch(plus())
                     case "-": return props.dispatch(minus())
@@ -22,11 +21,5 @@ const OperatorKey = (props) => (
         </button>
     </div>
 )
-
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
 
 export default connect()(OperatorKey)

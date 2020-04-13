@@ -7,7 +7,6 @@ import Calculator from './components/calculator'
 import '../src/styles/style.css'
 
 const store = configureStore()
-//store.subscribe(() => console.log(store.getState()))
 
 const jsx = (
     <Provider store={store}>

@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import OperatorKey from './OperatorKey'
 
-const OperatorKeys = (props) => (
+const OperatorKeys = () => (
     <div className="operator-keys td">
         <OperatorKey text="÷" />
         <OperatorKey text="X" />
@@ -11,11 +11,5 @@ const OperatorKeys = (props) => (
         <OperatorKey text="=" />
     </div>
 )
-
-const mapStateToProps = (state) => {
-    return {
-
-    }
-}
 
 export default connect()(OperatorKeys)

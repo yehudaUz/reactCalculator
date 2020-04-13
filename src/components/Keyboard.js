@@ -2,24 +2,15 @@ import React from 'react'
 import { connect } from 'react-redux'
 import DigitKeys from './DigitKeys'
 import OperationalKeys from './OperationalKeys'
-import OperatorKey from './OperatorKey'
 import OperatorKeys from './OperatorKeys'
 
 
-const Keyboard = (props) => (
+const Keyboard = () => (
     <div className="keyboard" id="table">
-        {/* <p>{props.test}</p> */}
         <OperationalKeys />
         <DigitKeys />
         <OperatorKeys />
     </div >
 )
 
-
-const mapsToProps = (state) => {
-    return {
-        test: "keybord testing"
-    }
-}
-
-export default connect(mapsToProps)(Keyboard)
+export default connect()(Keyboard)
